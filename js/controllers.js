@@ -1,4 +1,4 @@
-var amigosControllers = angular.module('amigosControllers', ['mgcrea.ngStrap']);
+var amigosControllers = angular.module('amigosControllers', ['ngAnimate','mgcrea.ngStrap']);
 
 //controlador del index
 amigosControllers.controller('appCtrl', function($scope,$rootScope, $location){
