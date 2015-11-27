@@ -33,7 +33,7 @@ amigosControllers.controller('amigoEditCtrl', ['$scope', '$rootScope','$routePar
 //controlador de la vista Nuevo amigo
 amigosControllers.controller('amigoNuevoCtrl', ['$scope', '$rootScope','$routeParams','amigoSrv','$modal',
  function($scope,$rootScope,$routeParams,amigoSrv,$modal) {
-    var myModal = $modal({title: 'My Title', content: 'My Content',});  	
+    var myModal = $modal({title: 'My Title', content: 'My Content',show:'false'});  	
     
 	$scope.amigo={nombre:"",tlfno:""};
 	$scope.guardar=function(){
