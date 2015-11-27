@@ -1,4 +1,5 @@
 <form class="well">	
+	<div id="alert"></div>
 	<div class="form-group">
 		<label for="txtNombre" class="col-sm-2 form-label">Nombre:</label>
 		<div class="col-sm-10">
@@ -16,7 +17,7 @@
 	<div class="form-group">
 			
 				<a href="#/amigos" class="btn btn-primary">Cancelar</a>
-				<a href="#/amigos" class="btn btn-primary" ng-click="guardar()">Añadir</a>
+				<button class="btn btn-primary" title="Amigo añadido" data-content="El amigos ha sido añadido correctamente" data-placement="top-right" data-container="#alert" data-duration="3" bs-alert="alert" ng-click="guardar()">Añadir</button>
 				<a href="#/amigos" class="btn btn-danger" ng-click="eliminar()">Borrar</a>
 			
 	</div>
