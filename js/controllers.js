@@ -19,8 +19,8 @@ amigosControllers.controller('amigosCtrl', ['$scope','amigoSrv',
   }]);
   
  //controlador de la vista Edición de amigo
-amigosControllers.controller('amigoEditCtrl', ['$scope', '$rootScope','$routeParams','amigoSrv',
-  function($scope,$rootScope,$routeParams,amigoSrv) {
+amigosControllers.controller('amigoEditCtrl', ['$scope', '$rootScope','$routeParams','amigoSrv','$modal',
+  function($scope,$rootScope,$routeParams,amigoSrv,$modal) {
   	$scope.amigo=amigoSrv.find($routeParams.amigoId);
 	$scope.guardar=function(){
 		//$rootScope.amigos[$routeParams.amigoId]=$scope.amigo;
