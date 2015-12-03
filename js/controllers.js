@@ -28,10 +28,8 @@ amigosControllers.controller('amigoEditCtrl', ['$scope', '$rootScope','$routePar
 	
 	$scope.askDelete=function(){
       var myModal = $modal({ scope: $scope, template: "modal.html", show: false });
+      myModal.show();
 
-		$scope.showModal = function () {
-    		myModal.$promise.then(myModal.show);
-		}
 	};
 
 	
