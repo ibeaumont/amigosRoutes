@@ -25,7 +25,18 @@ amigosControllers.controller('amigoEditCtrl', ['$scope', '$rootScope','$routePar
 	$scope.guardar=function(){
 		//$rootScope.amigos[$routeParams.amigoId]=$scope.amigo;
 	};
+	
+	$scope.askDelete=function(){
+      var myModal = $modal({ scope: $scope, template: "modal.html", contentTemplate: false, html: true, show: false });
+
+		$scope.showModal = function () {
+    		myModal.$promise.then(myModal.show);
+		}
+	};
+
+	
 	$scope.eliminar=function(){
+		
 	    amigoSrv.delete($routeParams.amigoId);
 	};
   }]);
@@ -33,11 +44,13 @@ amigosControllers.controller('amigoEditCtrl', ['$scope', '$rootScope','$routePar
 //controlador de la vista Nuevo amigo
 amigosControllers.controller('amigoNuevoCtrl', ['$scope', '$rootScope','$routeParams','amigoSrv','$modal',
  function($scope,$rootScope,$routeParams,amigoSrv,$modal) {
-    var myModal = $modal({title: 'My Title', content: 'My Content',show:'false'});  	
+    
     
 	$scope.amigo={nombre:"",tlfno:""};
 	$scope.guardar=function(){
-	    myModal.show();
+	    //var myModal = $modal({title: 'My Title', content: 'My Content',show:'false'});  	
+	    //myModal.show();
+	    
 		
 		amigoSrv.add($scope.amigo);
 		

@@ -36,8 +36,15 @@
         <li ng-class="{active:isActive('/amigos')}"><a href="#/amigos">Listado <span class="sr-only">(current)</span></a></li>
         <li ng-class="{active:isActive('/amigo')}"><a href="#/amigo/">Editar</a></li>
         <li ng-class="{active:isActive('/nuevo')}"><a href="#/nuevo/">Nuevo</a></li>
+        
       </ul>
     </div><!-- /.navbar-collapse  -->
+    <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Busqueda">
+        </div>
+        <button  class="btn btn-default">Buscar</button>
+      </form>
   </div><!-- /.container-fluid -->
 </nav>
 	<!--fin navbar-->
