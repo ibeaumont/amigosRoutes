@@ -26,7 +26,7 @@ amigosControllers.controller('amigoEditCtrl', ['$scope', '$rootScope','$routePar
 		//$rootScope.amigos[$routeParams.amigoId]=$scope.amigo;
 	};
 	
-	$scope.askDelete=function(){
+	$scope.askDelete=function($scope){
       var myModal = $modal({ scope: $scope,  show: false });
       myModal.show();
 
