@@ -1,10 +1,12 @@
 var amigoApp = angular.module('amigoApp', [
   'ngRoute',
-  'amigosControllers'  
+  'amigosControllers','firebase' 
 ]);
 
-amigoApp.factory('amigoSrv',function(){
-   var lstAmigos = [
+amigoApp.factory('amigoSrv',['$firebaseArray',function( $firebaseArray){
+	 var ref = new Firebase("https://froga.firebaseio.com");
+	 var lstAmigos=$firebaseArray(ref);
+  /* var lstAmigos = [
 	{
 		nombre:"juan",
 		tlfno:"123456789"
@@ -17,7 +19,8 @@ amigoApp.factory('amigoSrv',function(){
 		nombre:"luis",
 		tlfno:"123456789"
 	}
-	];
+	];*/
+	console.log(lstAmigos);
 	return{
 	  get:function(){
 	    return lstAmigos;
@@ -26,14 +29,18 @@ amigoApp.factory('amigoSrv',function(){
 	    return lstAmigos[id];
 	  },
 	  add:function(amigo){
-	    lstAmigos.push(amigo);
+	    lstAmigos.$add(amigo);
+	  },
+	  save:function(id){
+	  	lstAmigos.$save(lstAmigos[id]);
 	  },
 	  delete:function(id){
-	  	lstAmigos.splice(id,1);
+	  	//lstAmigos.splice(id,1);
+	  	lstAmigos.$remove(lstAmigos[id]);
 	  }
 	};
 	
-});
+}]);
 
 amigoApp.config(['$routeProvider',
   function($routeProvider) {

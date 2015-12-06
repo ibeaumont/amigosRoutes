@@ -24,11 +24,12 @@ amigosControllers.controller('amigoEditCtrl', ['$scope', '$rootScope','$routePar
   	$scope.amigo=amigoSrv.find($routeParams.amigoId);
 	$scope.guardar=function(){
 		//$rootScope.amigos[$routeParams.amigoId]=$scope.amigo;
+		amigoSrv.save($routeParams.amigoId);
 	};
-	
+	$scope.myModal= $modal({ scope: $scope, templateUrl:'modal.html', show:false });
 	$scope.askDelete=function(){
-      var myModal = $modal({ scope: $scope, templateUrl:'modal.html', show: true });
-      //myModal.show();
+      //var myModal = $modal({ scope: $scope, templateUrl:'modal.html', show: true });
+      $scope.myModal.show();
 
 	};
 
@@ -36,6 +37,7 @@ amigosControllers.controller('amigoEditCtrl', ['$scope', '$rootScope','$routePar
 	$scope.eliminar=function(){
 		
 	    amigoSrv.delete($routeParams.amigoId);
+	    $scope.myModal.hide();
 	};
   }]);
 
